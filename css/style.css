@@ -1,0 +1,125 @@
+:root {
+    --white: #ffffff;
+    --gray:#5c616b;
+    --gray2:#757880;
+    --black:#1e2025;
+    --red:#bb0000;
+    --blue1:#daf6ff;
+    --blue2:#0aafe6;
+    --whiteRed:#f3b7b7;
+    --whiteYellow:#f5f5b4;
+    --whiteGreen:#c0f5c7;
+    --beige:#f5f5dc;
+    --brown:rgb(95, 38, 0);
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    color: var(--white);
+}
+
+
+.torreJanoi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    height: 80%;
+    width: 80%;
+    background-color: var(--black);
+}
+
+.panel-juego{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    padding: 1%;
+    background: var(--gray);
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nuevo-juego{
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 5%;
+    margin: 2%;
+    gap: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nuevo-juego select{
+    background-color: var(--gray2);
+    color: var(--black);
+    text-align: center;
+    width: 45%;
+}
+
+.velocidad{
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 4%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.zonaJuego{
+    background-color: var(--black);
+    height: 80%;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    gap: 2%;
+    padding: 1%;
+    border: 1px solid var(--white);
+}
+
+.zonaTorre {
+    width: 33%;
+    height: 90%;
+    background: var(--beige);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.vara{
+    width: 1%;
+    height: 45%;
+    background: var(--brown);
+    position: absolute;
+    border-radius: 5px;
+}
+
+.disco {
+    width: 80%;
+    height: 3.5%;
+    background: var(--blue2);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.disc {
+    height: 4%;
+    border-radius: 3px;
+    z-index: 1;
+}
+  
+.is-dragging {
+    opacity: 0.3;
+}
