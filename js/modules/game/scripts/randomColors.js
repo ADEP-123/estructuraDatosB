@@ -1,4 +1,4 @@
-import Variables from "../variables.js";
+import Variables from "../../../variables.js"
 
 export default function randomColors() {
     const variables = new Variables;

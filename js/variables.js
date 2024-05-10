@@ -4,7 +4,7 @@ class Variables {
             this.torres = document.querySelectorAll(".zonaTorre");
             this.towerContent = [[], [], []];
             this.size = 6;
-            this.discs = document.querySelectorAll('.disco');
+            this.discs;
             this.sleepTime = 300;
             this.speed = 100;
             this.lastColor = "";
@@ -13,11 +13,15 @@ class Variables {
             this.discSelect = document.getElementById("discSelect");
             this.speedRange = document.getElementById("speedRange");
             this.btnSolve = document.getElementById("btnSolve");
-            this.originTower = undefined;
-            this.currentTower = undefined;
+            this.originTower;
+            this.currentTower;
             Variables.instance = this;
         }
         return Variables.instance
+    }
+
+    getDiscSelect(){
+        return this.getDiscSelect
     }
 
     getLastColor() {
