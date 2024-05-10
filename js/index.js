@@ -7,28 +7,31 @@ import dragenter from "./modules/dragenter.js";
 import dragover from "./modules/dragover.js";
 import dragstart from "./modules/dragstart.js";
 import dragend from "./modules/dragend.js";
+import moveTopDisc from "./modules/moveTopDisc.js";
 
 const variables = new Variables;
 
+iniciarJuego()
+
 function iniciarJuego() {
-    let towerContent = variables.getTowerContent;
-    const torres = variables.getTowers
+    let towerContent = variables.getTowerContent();
+    let torres = variables.getTowers()
     variables.putTowercontent([[], [], []])
 
-    construirTorres(variables.getTowers)
+    construirTorres(variables.getTowers())
 
     //Crear discos y colocarlos en la primera torre/vara
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < variables.getSize(); i++) {
         let torre = document.createElement("div");
         torre.classList.add("disc")
-        torre.draggable = "true"
-        tower.style.backgroundColor = randomColors();
-        tower.style.width = (variables.getStartWidth - (5 * i)) + "%"
-        towerContent[0].push(tower)
+        torre.draggable = true
+        torre.style.backgroundColor = randomColors();
+        torre.style.width = (variables.getStartWidth() - (5 * i)) + "%"
+        towerContent[0].push(torre)
         variables.putTowercontent(towerContent)
     }
 
-    //Agregar dico a la primera torre en el DOM
+    //Agregar disco a la primera torre en el DOM
     towerContent[0].forEach(t => {
         torres[0].innerHTML = t.outerHTML + torres[0].innerHTML
     });
@@ -41,7 +44,7 @@ function iniciarJuego() {
     }
 
     //Obtener las referencias a todos los discos
-    const discs = variables.getDiscs
+    const discs = variables.getDiscs()
 
     discs.forEach(disc => {
         disc.addEventListener("dragstart", dragstart)
@@ -49,3 +52,25 @@ function iniciarJuego() {
     });
 }
 
+//animar movimientos de la solucion
+async function mover(movimientos) {
+    for (let i = 0; i < movimientos.length; i++) {
+        const element = movimientos[i];
+        moveTopDisc(element.origin, element.destiny)
+        await sleep(5 * variables.getSleepTime() - 14 * variables.getSpeed())
+    }
+}
+
+variables.getSpeedRange().addEventListener('input', event => {
+    variables.putSpeed(event.target.value)
+})
+
+variables.getNewGameBtn().addEventListener('click', () => {
+    variables.putSize(discSelect.selectedIndex + 1)
+    iniciarJuego()
+})
+
+variables.getSolveBtn().onclick = function () {
+    const movimientos = getHanoiSolutions(variables.getSize())
+    mover(movimientos)
+}

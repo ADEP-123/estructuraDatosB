@@ -4,7 +4,7 @@ class Variables {
             this.torres = document.querySelectorAll(".zonaTorre");
             this.towerContent = [[], [], []];
             this.size = 6;
-            this.discs = "";
+            this.discs = document.querySelectorAll('.disco');
             this.sleepTime = 300;
             this.speed = 100;
             this.lastColor = "";
@@ -64,6 +64,37 @@ class Variables {
         this.currentTower = newCurrentTower
     }
 
+    getSleepTime() {
+        return this.sleepTime
+    }
+
+    getSpeed() {
+        return this.speed
+    }
+
+    putSpeed(newSpeed) {
+        this.speed = newSpeed
+    }
+
+    getSpeedRange() {
+        return this.speedRange
+    }
+
+    getNewGameBtn() {
+        return this.newGameBtn
+    }
+
+    getSolveBtn() {
+        return this.btnSolve
+    }
+
+    getSize() {
+        return this.size
+    }
+
+    putSize(newSize) {
+        this.size = newSize
+    }
 
 
 }
