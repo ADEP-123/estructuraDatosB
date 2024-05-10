@@ -1,5 +1,6 @@
 // funcion para aconstruir las torres con las varas y discos
 export default function construirTorres(towers) {
+    console.log(towers);
     towers.forEach(tower => {
         const vara = document.createElement('div')
         vara.className = 'vara'

@@ -13,6 +13,7 @@ const torres = variables.getTowers();
 // Inicializar el tower content
 let towerContent = variables.getTowerContent()
 
+
 // Inicializando el tamaño de los discos y los discos
 let size = variables.getSize();
 let discs = variables.getDiscs();
@@ -26,7 +27,7 @@ const startWidth = variables.getStartWidth();
 
 
 // html elements
-const newGameBtn = variables.getNewGameBtn()
+const newGameBtn = variables.getNewGameBtn();
 const discSelect = variables.getDiscSelect();
 const speedRange = variables.getSpeedRange();
 const btnSolve = variables.getSolveBtn();
@@ -71,6 +72,7 @@ function iniciarJuego() {
 
     // Obtener todos los discos
     discs = document.querySelectorAll('.disc')
+    console.log(discs);
 
     discs.forEach(disc => {
         disc.addEventListener('dragstart', dragstart)
@@ -185,7 +187,8 @@ class Game {
 
         // Evento de escucha para un nuevo juego
         newGameBtn.addEventListener('click', () => {
-            size = discSelect.selectedIndex
+            size = discSelect.selectedIndex + 1
+            console.log(discSelect);
             iniciarJuego()
         })
 

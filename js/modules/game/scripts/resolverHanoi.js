@@ -20,7 +20,7 @@ const getHanoiSolutions = (nDiscs) => {
     }
 
     // Iniciar el proceso recursivo con una llamada inicial de la funcion
-    hanoi(nDiscs, 0, 1, 2)
+    hanoi(nDiscs, 0, 2, 1)
 
     return solutions;
 }

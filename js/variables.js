@@ -20,8 +20,8 @@ class Variables {
         return Variables.instance
     }
 
-    getDiscSelect(){
-        return this.getDiscSelect
+    getDiscSelect() {
+        return this.discSelect
     }
 
     getLastColor() {

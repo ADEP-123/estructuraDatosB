@@ -107,10 +107,9 @@ body{
 }
 
 .disco {
-    width: 80%;
+    width: 100%;
     height: 3.5%;
-    background: var(--blue2);
-    border-radius: 10px;
+    background: var(--brown);
     z-index: 1;
 }
 
