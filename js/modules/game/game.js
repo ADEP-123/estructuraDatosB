@@ -3,6 +3,7 @@ import sleep from "./scripts/util.js";
 import getHanoiSolutions from "./scripts/resolverHanoi.js";
 import randomColors from "./scripts/randomColors.js";
 import construirTorres from "./scripts/construirTorres.js";
+import validarSiGana from "./scripts/validarSiGana.js";
 
 //iniciar la clase variables
 const variables = new Variables
@@ -115,6 +116,7 @@ function moveTower(originTowerIndex, currentTowerIndex, disc) {
         towerContent[currentTowerIndex].push(towerContent[originTowerIndex].pop())
         originTower.removeChild(disc)
         currentTower.prepend(disc)
+        validarSiGana(towerContent[currentTowerIndex].length, size)
     }
 }
 
