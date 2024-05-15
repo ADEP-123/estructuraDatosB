@@ -22,6 +22,10 @@ body{
     height: 100vh;
     color: var(--white);
 }
+select{
+    background-color: var(--gray2);
+    color: var(--black);
+}
 
 
 .torreJanoi{
@@ -59,13 +63,11 @@ body{
 }
 
 .nuevo-juego select{
-    background-color: var(--gray2);
-    color: var(--black);
     text-align: center;
     width: 45%;
 }
 
-.velocidad{
+.resHan{
     border: 1px solid var(--black);
     border-radius: 5px;
     padding: 4%;
@@ -73,6 +75,9 @@ body{
     text-align: center;
     display: flex;
     flex-direction: column;
+}
+.resHan div{
+    width: 100%;
 }
 
 .zonaJuego{
@@ -121,4 +126,14 @@ body{
   
 .is-dragging {
     opacity: 0.3;
+}
+.towSelect{
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.velocidad{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

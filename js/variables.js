@@ -3,7 +3,7 @@ class Variables {
         if (!Variables.instance) {
             this.torres = document.querySelectorAll(".zonaTorre");
             this.towerContent = [[], [], []];
-            this.size = 6;
+            this.size = 3;
             this.discs;
             this.sleepTime = 300;
             this.speed = 100;
@@ -15,6 +15,8 @@ class Variables {
             this.btnSolve = document.getElementById("btnSolve");
             this.originTower;
             this.currentTower;
+            this.initialTower = document.querySelector("#initialSel");
+            this.finalTower = document.querySelector("#finalSel");
             Variables.instance = this;
         }
         return Variables.instance

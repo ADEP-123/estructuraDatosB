@@ -1,5 +1,18 @@
+import Variables from "../../../variables.js"
+
+const variables = new Variables();
+
 const getHanoiSolutions = (nDiscs) => {
     const solutions = []
+
+    //Sacando cuales seran la posicion inicial y final y el auxiliar segun lo desee el usuario con los select
+    let posAux = [0, 1, 2];
+    const initialTower = Number(variables.initialTower.value)
+    const finalTower = Number(variables.finalTower.value)
+    posAux.splice(posAux.indexOf(initialTower), 1)
+    posAux.splice(posAux.indexOf(finalTower), 1)
+    const auxTower = posAux[0]
+    console.log({initialTower, finalTower, auxTower});
 
     // funcion recursiva para mover los discos de las torres desde el origen al destino
     const hanoi = (n, origin, destiny, aux) => {
@@ -20,7 +33,10 @@ const getHanoiSolutions = (nDiscs) => {
     }
 
     // Iniciar el proceso recursivo con una llamada inicial de la funcion
-    hanoi(nDiscs, 0, 2, 1)
+    if (initialTower != finalTower) {
+        hanoi(nDiscs, initialTower, finalTower, auxTower)
+    }
+
 
     return solutions;
 }

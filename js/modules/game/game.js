@@ -41,6 +41,7 @@ let originTower = variables.getOriginTower()
 iniciarJuego()
 
 function iniciarJuego() {
+    const initialTower = Number(variables.initialTower.value);
     // Limpiar el contenido de las torres
     towerContent = [[], [], []]
     variables.putTowercontent(towerContent)
@@ -55,12 +56,12 @@ function iniciarJuego() {
         tower.draggable = true
         tower.style.backgroundColor = randomColors()
         tower.style.width = (startWidth - (7 * i)) + '%'
-        towerContent[0].push(tower)
+        towerContent[initialTower].push(tower)
     }
 
     // Agregar discos a la primera torre en el dom
-    towerContent[0].forEach(t => {
-        torres[0].innerHTML = t.outerHTML + torres[0].innerHTML
+    towerContent[initialTower].forEach(t => {
+        torres[initialTower].innerHTML = t.outerHTML + torres[initialTower].innerHTML
     })
 
     // Aggregar eventos de escucha para mover los discos
@@ -72,7 +73,7 @@ function iniciarJuego() {
 
     // Obtener todos los discos
     discs = document.querySelectorAll('.disc')
-    console.log(discs);
+    // console.log(discs);
 
     discs.forEach(disc => {
         disc.addEventListener('dragstart', dragstart)
@@ -131,7 +132,7 @@ function isOnTop(originTowerIndex, disc) {
     return disc.style.width === towerContent[originTowerIndex][size - 1].style.width
 }
 
-// Mirar si el disco es menor al primerod e la nueva torre
+// Mirar si el disco es menor al primero de la nueva torre
 function isDiscLessThan(currentTowerIndex, disc) {
     let size = towerContent[currentTowerIndex].length
 
@@ -195,8 +196,15 @@ class Game {
         // Evento de escucha para el boton de resolver  
         btnSolve.onclick = function () {
             const movements = getHanoiSolutions(size)
-            moves(movements)
+            movements.length == 0 ? alert("La torre inicial y final no pueden ser la misma") : moves(movements);
+
         }
+
+        variables.initialTower.addEventListener("change", e => {
+            e.preventDefault();
+            e.stopPropagation();
+            iniciarJuego()
+        })
     }
 }
 
