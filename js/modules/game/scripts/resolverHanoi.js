@@ -12,7 +12,7 @@ const getHanoiSolutions = (nDiscs) => {
     posAux.splice(posAux.indexOf(initialTower), 1)
     posAux.splice(posAux.indexOf(finalTower), 1)
     const auxTower = posAux[0]
-    console.log({initialTower, finalTower, auxTower});
+    // console.log({initialTower, finalTower, auxTower});
 
     // funcion recursiva para mover los discos de las torres desde el origen al destino
     const hanoi = (n, origin, destiny, aux) => {
