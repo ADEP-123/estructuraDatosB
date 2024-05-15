@@ -25,6 +25,7 @@ body{
 select{
     background-color: var(--gray2);
     color: var(--black);
+    text-align: center;
 }
 
 
@@ -60,11 +61,6 @@ select{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-}
-
-.nuevo-juego select{
-    text-align: center;
-    width: 45%;
 }
 
 .resHan{
@@ -130,7 +126,7 @@ select{
 .towSelect{
     display:  flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .velocidad{
     display: flex;

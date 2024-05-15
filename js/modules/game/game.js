@@ -27,7 +27,6 @@ const startWidth = variables.getStartWidth();
 
 
 // html elements
-const newGameBtn = variables.getNewGameBtn();
 const discSelect = variables.getDiscSelect();
 const speedRange = variables.getSpeedRange();
 const btnSolve = variables.getSolveBtn();
@@ -187,9 +186,9 @@ class Game {
         })
 
         // Evento de escucha para un nuevo juego
-        newGameBtn.addEventListener('click', () => {
+        variables.discSelect.addEventListener('change', () => {
             size = discSelect.selectedIndex + 1
-            console.log(discSelect);
+            // console.log(discSelect);
             iniciarJuego()
         })
 
@@ -203,6 +202,7 @@ class Game {
         variables.initialTower.addEventListener("change", e => {
             e.preventDefault();
             e.stopPropagation();
+            size = discSelect.selectedIndex + 1
             iniciarJuego()
         })
     }

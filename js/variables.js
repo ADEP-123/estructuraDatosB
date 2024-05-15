@@ -9,7 +9,6 @@ class Variables {
             this.speed = 100;
             this.lastColor = "";
             this.startWidth = 80;
-            this.newGameBtn = document.getElementById("newGameBtn");
             this.discSelect = document.getElementById("discSelect");
             this.speedRange = document.getElementById("speedRange");
             this.btnSolve = document.getElementById("btnSolve");
