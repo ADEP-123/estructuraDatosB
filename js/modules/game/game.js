@@ -117,7 +117,7 @@ function moveTower(originTowerIndex, currentTowerIndex, disc) {
         towerContent[currentTowerIndex].push(towerContent[originTowerIndex].pop())
         originTower.removeChild(disc)
         currentTower.prepend(disc)
-        validarSiGana(towerContent[currentTowerIndex].length, size)
+        validarSiGana(towerContent[currentTowerIndex].length, size,currentTowerIndex)
     }
 }
 
@@ -221,6 +221,13 @@ class Game {
             e.preventDefault()
             e.stopPropagation()
             variables.errorMessagesList.innerHTML = "";
+        })
+
+        //evento de escucha para el boton reintentar
+        variables.reintentarButt.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+            location.reload();
         })
     }
 }

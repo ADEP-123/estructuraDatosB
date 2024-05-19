@@ -16,8 +16,10 @@ class Variables {
             this.currentTower;
             this.initialTower = document.querySelector("#initialSel");
             this.finalTower = document.querySelector("#finalSel");
-            this.errorMessagesList = document.querySelector(".alertas")
-            this.errorMessageEx = document.querySelector(".alerta")
+            this.errorMessagesList = document.querySelector(".alertas");
+            this.errorMessageEx = document.querySelector(".alerta");
+            this.reintentarButt = document.getElementById("reintentarButt")
+            this.winWindow = document.querySelector(".winWindow");
             Variables.instance = this;
         }
         return Variables.instance
