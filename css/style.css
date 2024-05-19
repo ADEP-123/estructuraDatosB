@@ -272,7 +272,7 @@ select{
     background-color: white;
 }
 .winDiv h1{
-    font-size: 4vw;
+    font-size: 3vw;
     color: var(--color--one);
     text-shadow: 0px 5px 3.5px rgba(0, 0, 0, 0.3);
 }
@@ -286,7 +286,7 @@ select{
     padding: 1%;
 }
 .winDiv img{
-    width: 75%;
+    height: 35%;
 }
 button:hover{
     cursor:  pointer;
@@ -366,7 +366,7 @@ button:hover{
         width: 40vw;
     }
     .winDiv h1{
-        font-size: 5vw;
+        font-size: 4vw;
     }
 }
 

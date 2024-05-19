@@ -117,7 +117,9 @@ function moveTower(originTowerIndex, currentTowerIndex, disc) {
         towerContent[currentTowerIndex].push(towerContent[originTowerIndex].pop())
         originTower.removeChild(disc)
         currentTower.prepend(disc)
-        validarSiGana(towerContent[currentTowerIndex].length, size,currentTowerIndex)
+        variables.aumentarMovs()
+        console.log(variables.getCantMobs());
+        validarSiGana(towerContent[currentTowerIndex].length, size, currentTowerIndex)
     }
 }
 

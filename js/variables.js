@@ -20,6 +20,7 @@ class Variables {
             this.errorMessageEx = document.querySelector(".alerta");
             this.reintentarButt = document.getElementById("reintentarButt")
             this.winWindow = document.querySelector(".winWindow");
+            this.cantMov = 0;
             Variables.instance = this;
         }
         return Variables.instance
@@ -103,6 +104,13 @@ class Variables {
 
     putSize(newSize) {
         this.size = newSize
+    }
+
+    aumentarMovs() {
+        this.cantMov++
+    }
+    getCantMobs() {
+        return this.cantMov
     }
 
 
