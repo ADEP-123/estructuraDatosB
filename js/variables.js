@@ -16,6 +16,8 @@ class Variables {
             this.currentTower;
             this.initialTower = document.querySelector("#initialSel");
             this.finalTower = document.querySelector("#finalSel");
+            this.errorMessagesList = document.querySelector(".alertas")
+            this.errorMessageEx = document.querySelector(".alerta")
             Variables.instance = this;
         }
         return Variables.instance

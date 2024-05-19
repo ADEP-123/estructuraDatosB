@@ -4,6 +4,7 @@ import getHanoiSolutions from "./scripts/resolverHanoi.js";
 import randomColors from "./scripts/randomColors.js";
 import construirTorres from "./scripts/construirTorres.js";
 import validarSiGana from "./scripts/validarSiGana.js";
+import agregarError from "./scripts/agregarError.js";
 
 //iniciar la clase variables
 const variables = new Variables
@@ -130,7 +131,11 @@ function isDroppable(originTowerIndex, currentTowerIndex, disc) {
 // Mirar si el disco elegido esta en el tope de la torre de origen
 function isOnTop(originTowerIndex, disc) {
     let size = towerContent[originTowerIndex].length
-    return disc.style.width === towerContent[originTowerIndex][size - 1].style.width
+    const isTop = disc.style.width === towerContent[originTowerIndex][size - 1].style.width
+    if (isTop == false) {
+        agregarError("El disco debe estar en el tope de la torre para poderlo mover")
+    }
+    return isTop
 }
 
 // Mirar si el disco es menor al primero de la nueva torre
@@ -142,8 +147,11 @@ function isDiscLessThan(currentTowerIndex, disc) {
     } else {
         let sizeTop = disc.style.width.substring(0, disc.style.width.indexOf('%'))
         let sizeBottom = towerContent[currentTowerIndex][size - 1].style.width.substring(0, towerContent[currentTowerIndex][size - 1].style.width.indexOf('%'))
-
-        return Number(sizeTop) < Number(sizeBottom)
+        const isLessThan = Number(sizeTop) < Number(sizeBottom)
+        if (isLessThan == false) {
+            agregarError("El disco debe ser menor que el existente")
+        }
+        return isLessThan
     }
 }
 
@@ -197,7 +205,7 @@ class Game {
         // Evento de escucha para el boton de resolver  
         btnSolve.onclick = function () {
             const movements = getHanoiSolutions(size)
-            movements.length == 0 ? alert("La torre inicial y final no pueden ser la misma") : moves(movements);
+            movements.length == 0 ? agregarError("La torre inicial y final no pueden ser la misma") : moves(movements);
 
         }
 
@@ -206,6 +214,13 @@ class Game {
             e.stopPropagation();
             size = discSelect.selectedIndex + 1
             iniciarJuego()
+        })
+
+        //Eliminar el mensaje de error por default:
+        document.addEventListener("DOMContentLoaded", e => {
+            e.preventDefault()
+            e.stopPropagation()
+            variables.errorMessagesList.innerHTML = "";
         })
     }
 }
