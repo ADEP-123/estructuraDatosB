@@ -216,6 +216,38 @@ select{
     height: 100%;
 }
 
+.alertas{
+    position: absolute;
+    width: 15%;
+    left: 85%;
+    height: 80%;
+    top: 10%;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+    align-items: center;
+    gap: 1%;
+}
+.alerta{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border: 2px solid rgb(163, 14, 14);
+    border-radius: 3%;
+    background-color: rgba(248, 119, 119, 0.247);
+    opacity: 1;
+}
+.alerta img{
+    height: 40%;
+}
+.alerta p{
+    color: rgb(121, 3, 3);
+}
+
 @media (max-width: 1000px){
     .navbar i{
         grid-column: 3;
