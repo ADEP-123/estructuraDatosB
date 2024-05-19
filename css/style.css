@@ -316,3 +316,15 @@ select{
         height: 30vh;
     }
 }
+
+@media (max-width: 800px){
+    .alertas{
+        width: 40%;
+        left: 60%;
+        height: 80%;
+        top: 10%;
+    }
+    .alerta{
+        background-color: rgba(248, 119, 119, 0.753);
+    }
+}
