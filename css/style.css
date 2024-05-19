@@ -260,7 +260,7 @@ select{
     justify-content: center;
 }
 .winDiv{
-    border: 2px solid var(--color--one);
+    box-shadow: 0 4px 10px var(--color--three);
     border-radius: 2%;
     width: 20vw;
     height: 60vh;
@@ -284,6 +284,9 @@ select{
     font-size: 1rem;
     border-radius: 100px;
     padding: 1%;
+}
+.winDiv img{
+    width: 75%;
 }
 button:hover{
     cursor:  pointer;
@@ -359,6 +362,12 @@ button:hover{
         width: 15px;
         height: 30vh;
     }
+    .winDiv{
+        width: 40vw;
+    }
+    .winDiv h1{
+        font-size: 5vw;
+    }
 }
 
 @media (max-width: 800px){
@@ -370,5 +379,11 @@ button:hover{
     }
     .alerta{
         background-color: rgba(248, 119, 119, 0.753);
+    }
+    .winDiv{
+        width: 50vw;
+    }
+    .winDiv h1{
+        font-size: 5.5vw;
     }
 }
