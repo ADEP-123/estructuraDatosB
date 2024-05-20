@@ -112,6 +112,9 @@ class Variables {
     getCantMobs() {
         return this.cantMov
     }
+    restCantMobs() {
+        this.cantMov = 0;
+    }
 
 
 }

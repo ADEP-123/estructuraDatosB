@@ -42,6 +42,9 @@ let originTower = variables.getOriginTower()
 iniciarJuego()
 
 function iniciarJuego() {
+    //Reiniciar la cantidad de movimientos
+    variables.restCantMobs()
+
     const initialTower = Number(variables.initialTower.value);
     // Limpiar el contenido de las torres
     towerContent = [[], [], []]
@@ -207,15 +210,26 @@ class Game {
         // Evento de escucha para el boton de resolver  
         btnSolve.onclick = function () {
             const movements = getHanoiSolutions(size)
+            if (variables.cantMov != 0) {
+                agregarError("No se puede resolver si ya realizo un movimiento")
+                return
+            }
             movements.length == 0 ? agregarError("La torre inicial y final no pueden ser la misma") : moves(movements);
 
         }
 
+        let prevInitialTower = variables.initialTower.value
         variables.initialTower.addEventListener("change", e => {
             e.preventDefault();
             e.stopPropagation();
             size = discSelect.selectedIndex + 1
+            if (variables.finalTower.value == variables.initialTower.value) {
+                agregarError("La torre final no puede ser igual a la inicial")
+                variables.initialTower.value = prevInitialTower
+                return
+            }
             iniciarJuego()
+            prevInitialTower = variables.initialTower.value;
         })
 
         //Eliminar el mensaje de error por default:
@@ -230,6 +244,18 @@ class Game {
             e.preventDefault();
             e.stopPropagation();
             location.reload();
+        })
+
+        let prevFinalTower = variables.finalTower.value
+        //evento de escucha para comprobar que la torre final no sea igual a la inicial
+        variables.finalTower.addEventListener("change", e => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (variables.finalTower.value == variables.initialTower.value) {
+                variables.finalTower.value = prevFinalTower
+                agregarError("La torre final no puede ser igual a la inicial")
+            }
+            prevFinalTower = variables.finalTower.value
         })
     }
 }
